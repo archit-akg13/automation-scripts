@@ -13,6 +13,7 @@ Collection of Python automation scripts — file organizer, PDF merger, email se
 | `json_config_manager.py` | Manage JSON configs with dot-notation access and validation |
 | `log_rotator.py` | Compress, archive, and rotate log files by size or age |
 | `system_monitor.py` | Lightweight resource tracker with disk alerts and JSON output |
+| `env_loader.py` | Dependency-free .env loader with type coercion and interpolation |
 
 ## Quick Start
 
