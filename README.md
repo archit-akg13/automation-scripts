@@ -66,3 +66,14 @@ Pull requests welcome. Before submitting:
 - Add a row to the `## Scripts` table in this README.
 - Include a module docstring with usage examples and exit codes.
 - Run `python -m py_compile your_script.py` to confirm it parses cleanly.
+
+## Status
+
+![License](https://img.shields.io/github/license/archit-akg13/automation-scripts)
+![Python](https://img.shields.io/badge/python-3.10%2B-blue)
+![Last Commit](https://img.shields.io/github/last-commit/archit-akg13/automation-scripts)
+![Repo Size](https://img.shields.io/github/repo-size/archit-akg13/automation-scripts)
+
+## Why this repo exists
+
+Most automation problems aren't novel — they're variations on patterns you've solved before but lost the code for. This repo is a stable home for those patterns. Each script is intentionally boring: stdlib only, one file, predictable CLI, exit codes you can branch on. The goal is that six months from now you can clone the repo, find the right script in 15 seconds, and run it without reading a tutorial.
