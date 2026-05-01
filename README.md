@@ -14,6 +14,7 @@ Collection of Python automation scripts — file organizer, PDF merger, email se
 | `log_rotator.py` | Compress, archive, and rotate log files by size or age |
 | `system_monitor.py` | Lightweight resource tracker with disk alerts and JSON output |
 | `env_loader.py` | Dependency-free .env loader with type coercion and interpolation |
+| `rename_invoices.py` | Rename PDF invoices to date_vendor_invoice_amount format using GSTIN extraction |
 
 ## Quick Start
 
