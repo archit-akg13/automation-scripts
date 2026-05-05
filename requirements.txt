@@ -1,0 +1,25 @@
+# Runtime dependencies for automation-scripts.
+#
+# The bulk of this collection is pure-stdlib (file_organizer, env_loader,
+# directory_diff, etc.) — those scripts have no install step.
+# The packages below cover the third-party scripts only.
+#
+# Install everything:
+#     pip install -r requirements.txt
+#
+# Or install per-script (each script's docstring lists its imports).
+
+# PDF tooling — used by pdf_merger.py, rename_invoices.py, gst_split.py
+pypdf>=4.0.0
+
+# PDF text/table extraction — used by gst_invoice_extractor.py
+pdfplumber>=0.10.0
+
+# Cross-platform process and system metrics — used by system_monitor.py
+psutil>=5.9.0
+
+# QR code generation — used by upi_qr_generator.py
+qrcode[pil]>=7.4.0
+
+# Optional: faster hashing for duplicate_file_finder.py on huge trees
+# xxhash>=3.4.0
