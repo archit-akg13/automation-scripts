@@ -28,6 +28,7 @@ Collection of Python automation scripts — file organizer, PDF merger, email se
 | `rename_invoices.py` | Rename PDF invoices to `date_vendor_invoice_amount` using GSTIN extraction |
 | `retry_helper.py` | Decorator with exponential backoff and jitter for flaky calls |
 | `system_monitor.py` | Lightweight resource tracker with disk alerts and JSON output |
+| `telegram_expense_bot.py` | Telegram bot that logs expenses from chat messages to a CSV ledger and reports monthly totals |
 | `upi_qr_generator.py` | Generate UPI payment QR codes from VPA + amount |
 
 ## Quick Start
@@ -46,6 +47,7 @@ python csv_data_cleaner.py input.csv --output cleaned.csv
 pip install -r requirements.txt
 python pdf_merger.py *.pdf --output combined.pdf
 python upi_qr_generator.py --vpa user@bank --amount 250
+python telegram_expense_bot.py --report 2026-08 --json
 ```
 
 ## Requirements
