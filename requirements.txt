@@ -21,5 +21,8 @@ psutil>=5.9.0
 # QR code generation — used by upi_qr_generator.py
 qrcode[pil]>=7.4.0
 
+# Telegram Bot API calls — used by telegram_expense_bot.py (--serve only)
+requests>=2.31.0
+
 # Optional: faster hashing for duplicate_file_finder.py on huge trees
 # xxhash>=3.4.0
