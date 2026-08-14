@@ -25,6 +25,7 @@ Collection of Python automation scripts — file organizer, PDF merger, email se
 | `log_rotator.py` | Compress, archive, and rotate log files by size or age |
 | `password_generator.py` | Secure password CLI with policy controls (length, classes, exclusions) |
 | `pdf_merger.py` | Merge and split PDFs with page range selection |
+| `pii_redactor.py` | Permanently strip PAN, Aadhaar and GSTIN from PDFs (Verhoeff-checked) |
 | `rename_invoices.py` | Rename PDF invoices to `date_vendor_invoice_amount` using GSTIN extraction |
 | `retry_helper.py` | Decorator with exponential backoff and jitter for flaky calls |
 | `system_monitor.py` | Lightweight resource tracker with disk alerts and JSON output |
@@ -48,13 +49,15 @@ pip install -r requirements.txt
 python pdf_merger.py *.pdf --output combined.pdf
 python upi_qr_generator.py --vpa user@bank --amount 250
 python telegram_expense_bot.py --report 2026-08 --json
+python pii_redactor.py ./kyc_packets            # preview only
+python pii_redactor.py ./kyc_packets --apply    # write redacted copies
 ```
 
 ## Requirements
 
 - Python 3.10+
 - Stdlib only for the majority of scripts
-- `requirements.txt` lists the few third-party pins (`pypdf`, `pdfplumber`, `psutil`, `qrcode[pil]`) used by the PDF, system, and QR scripts. Each pin is commented with the script that depends on it.
+- `requirements.txt` lists the few third-party pins (`pypdf`, `pdfplumber`, `pymupdf`, `psutil`, `qrcode[pil]`) used by the PDF, system, and QR scripts. Each pin is commented with the script that depends on it.
 
 ## License
 
