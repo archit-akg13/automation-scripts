@@ -21,6 +21,7 @@ Collection of Python automation scripts — file organizer, PDF merger, email se
 | `file_organizer.py` | Sort files into folders by extension with dry-run and undo |
 | `gst_invoice_extractor.py` | Pull GSTIN, dates, and amounts out of PDF invoices |
 | `gst_split.py` | Split GST PDF bundles into per-invoice files |
+| `gstin_validator.py` | Validate and decode GSTINs offline via the base-36 check character |
 | `json_config_manager.py` | Manage JSON configs with dot-notation access and validation |
 | `log_rotator.py` | Compress, archive, and rotate log files by size or age |
 | `password_generator.py` | Secure password CLI with policy controls (length, classes, exclusions) |
@@ -43,6 +44,8 @@ python file_organizer.py --source ~/Downloads --dry-run
 python dir_size_analyzer.py ~/Downloads --top 20 --by both
 python system_monitor.py --json --alert 80
 python csv_data_cleaner.py input.csv --output cleaned.csv
+python gstin_validator.py --check 27AAPFU0939F1ZV
+python gstin_validator.py vendors.csv --output checked.csv --json
 
 # Scripts that need third-party packages (PDF, QR, system metrics):
 pip install -r requirements.txt
