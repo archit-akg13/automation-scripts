@@ -1,0 +1,51 @@
+name: py-compile
+
+# The Contributing section of the README asks every contributor to run
+# `python -m py_compile your_script.py` before opening a PR. This workflow
+# enforces that automatically so a syntax error can never reach main.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.10", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Byte-compile every script
+        run: |
+          shopt -s nullglob
+          files=(*.py)
+          if [ ${#files[@]} -eq 0 ]; then
+            echo "No Python files found at repo root."
+            exit 1
+          fi
+          printf 'Compiling %d file(s)\n' "${#files[@]}"
+          python -m py_compile "${files[@]}"
+          echo "All files compiled cleanly."
+
+      - name: Check every argparse script exposes --help
+        run: |
+          shopt -s nullglob
+          for f in *.py; do
+            if grep -q 'argparse' "$f"; then
+              if ! python "$f" --help > /dev/null 2>&1; then
+                echo "::warning file=$f::--help did not exit cleanly"
+              fi
+            fi
+          done
